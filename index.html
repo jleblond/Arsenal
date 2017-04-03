@@ -127,7 +127,7 @@ console.log(length);
 	
 
 player.addEventListener("loadedmetadata", function(_event) {
-	fileduration = player.duration;
+	fileduration = player.duration+2;
 	document.getElementsByClassName("stroke")[0].style.animationDurationn = fileduration+"s";
 	document.getElementsByClassName("stroke")[0].style.webkitAnimationDuration  = fileduration+"s";
 	document.getElementsByClassName("stroke")[0].style.mozAnimationDuration = fileduration+"s";
