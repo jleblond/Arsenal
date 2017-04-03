@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="Webpage ">
 <meta name="author" content="JLeblondC jleblondc@gmail.com">
-<title>Sound App</title>
+<title>musique mobile</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <style>
 	
@@ -13,6 +13,14 @@ body {
   background-color:white;
   width:100%;
   height:100vh;
+}
+	
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .playpausebutton {
@@ -36,10 +44,9 @@ body {
 }
 
 .stroke {
-  color:white;
   stroke-dasharray: 145;
   stroke-dashoffset: 145;
-  animation: dash 15s linear infinite paused;
+  animation: dash 176s linear infinite paused;
 }
 	
 @keyframes dash {
@@ -62,16 +69,12 @@ body {
   width:100%;
 }
 	
-h1>span {background-color:#d3d3d3;line-height:1; padding:5px;}
-	
-
-.unselectable {
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+h1>span {
+  background-color:#d3d3d3;
+  line-height:1; 
+  padding:5px;
 }
+	
 </style>
 </head>
 
@@ -103,7 +106,7 @@ h1>span {background-color:#d3d3d3;line-height:1; padding:5px;}
 </div>
 <script>
 
-var mp3Array = ["1.mp3", "2.mp3", "3.mp3", "4.mp3", "5.mp3", "6.mp3", "7.mp3", "8.mp3", "9.mp3", "10.mp3", "11.mp3", "12.mp3", "14.mp3", "15.mp3", "16.mp3", "17.mp3", "18.mp3", "19.mp3", "20.mp3", "21.mp3", "22.mp3", "23.mp3", "24.mp3", "25.mp3", "26.mp3", "27.mp3", "28.mp3", "29.mp3", "30.mp3"];
+var mp3Array = ["audio/1.mp3", "audio/2.mp3", "audio/3.mp3", "audio/4.mp3", "audio/5.mp3", "audio/6.mp3", "audio/7.mp3", "audio/8.mp3", "audio/9.mp3", "audio/10.mp3", "audio/11.mp3", "audio/12.mp3", "audio/13.mp3", "audio/14.mp3", "audio/15.mp3", "audio/16.mp3", "audio/17.mp3", "audio/18.mp3", "audio/19.mp3", "audio/20.mp3", "audio/21.mp3", "audio/22.mp3", "audio/23.mp3", "audio/24.mp3", "audio/25.mp3", "audio/26.mp3", "audio/27.mp3", "audio/28.mp3", "audio/29.mp3", "audio/30.mp3"];
 	
 var animationDiv = document.querySelector('.stroke');
 var clickDiv = document.querySelector('.playpausebutton');
@@ -123,6 +126,16 @@ console.log(length);
  choice=""; 	
 	
 
+player.addEventListener("loadedmetadata", function(_event) {
+	fileduration = player.duration;
+	document.getElementsByClassName("stroke")[0].style.animationDurationn = fileduration+"s";
+	document.getElementsByClassName("stroke")[0].style.webkitAnimationDuration  = fileduration+"s";
+	document.getElementsByClassName("stroke")[0].style.mozAnimationDuration = fileduration+"s";
+	document.getElementsByClassName("stroke")[0].style.msAnimationDurationn = fileduration+"s";
+	document.getElementsByClassName("stroke")[0].style.oAnimationDurationn = fileduration+"s";
+});
+
+	
 	
 function togglePlay() {
   var audioplayer = document.getElementById('sound');
